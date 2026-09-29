@@ -1,6 +1,13 @@
 
-{
-  "title": "lær node.js",
-  "creator": "lauritz",
-  "length_seconds": 600
-}
+[
+  {
+   "title": "lær node.js",
+    "creator": "lauritz",
+    "length_seconds": 600
+  },
+  {
+    "title": "lær ting",
+    "creator": "lauritz",
+    "length_seconds": 800
+  }
+]
