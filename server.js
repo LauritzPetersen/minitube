@@ -13,11 +13,14 @@ const server = http.createServer(async (req, res) => {
         try {
             const rawText = await fs.readFile('./data/video.json', 'utf8');
             const videoObject = JSON.parse(rawText);
+            if (!videoObject.title || !videoObject.creator || !videoObject.length_seconds) {
+                throw new Error("validationerror: missing data");
+            }
 
-            res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+            res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
             res.end(JSON.stringify(videoObject));
         } catch (error) {
-            res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+            res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
             res.end(JSON.stringify({error: 'something went wrong'}));
         }
     }
